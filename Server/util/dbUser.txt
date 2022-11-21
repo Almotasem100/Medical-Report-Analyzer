@@ -1,0 +1,7 @@
+user: GP_db
+pass: CufeSbme
+
+IP add: 197.53.246.12/32
+
+
+database URL: 'mongodb+srv://GP_db:<password>@cluster0.hjrk5.mongodb.net/test'

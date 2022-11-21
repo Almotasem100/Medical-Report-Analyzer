@@ -1,0 +1,27 @@
+<main class="content">
+  <div class="row">
+    <div class="col-2 col-sm-3">
+      <form method="POST" action="/report/assign/{{patientId}}">
+      {{#each doctors}}
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Dr.{{this.FirstName}} {{this.LastName}}</h5>
+          </div>
+          <img class="card-img-top" src="/img/{{this.ImagePath}}" alt="Unsplash">
+          <div class="card-body">
+              <ul class="list-unstyled mb-0">
+                <li class="mb-4" style="font-weight: bold;"><span data-feather="mail" class="feather-sm me-1"></span>Email	{{this.Email}}</li>
+                <li class="mb-4" style="font-weight: bold;"><span data-feather="phone" class="feather-sm me-1"></span>Phone	{{this.Phone}}</li>
+                <li class="mb-4" style="font-weight: bold;"><span data-feather="clipboard" class="feather-sm me-1"></span>Speciality	{{this.Speciality}}</li>
+              </ul>
+          </div>
+          <input type="text" name="patid" style="visibility: hidden;" value="{{@root.patientId}}" >
+          <input type="text" name="docid" style="visibility: hidden;" value="{{this._id}}" >
+          <input type="text" name="reportid" style="visibility: hidden;" value="{{@root.reportId}}" >
+          <button type="submit" class="btn btn-lg btn-primary"  style="float: right; margin-top:0.5em;" id="sub_btn">Assign Report</button>
+        </div>
+      {{/each}}
+      </form>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,169 @@
+<main class="content">
+	<div class="row">
+		<div class="col-12 col-md-6">
+			<div class="card">
+				<form method="POST" action="/patient/upload/{{patientId}}" enctype="multipart/form-data">
+					<div class="card-header">
+						<h5 class="card-title mb-0">Upload a Report</h5>
+					</div>
+					<div class="card-body">
+						<p class="card-text">Upload a copy of your medical report as an image(ie. png, jpg,..etc.) or Fill the data manually</p>
+						<div class="mb-5" style="margin-top: 2em;">
+							<label class="form-label">Report Name</label>
+							<input class="form-control form-control-lg" name="report_name" type="text" style="width: 100%; margin-top:0.5em" required="required"/>
+						</div>
+						{{!-- <a href="#" class="btn btn-primary" style="float: right;">Browse your folders</a> --}}
+						<button type="submit" class="btn btn-lg btn-primary"  style="float: right; margin-top:0.5em;" disabled id="sub_btn">Save & Submit</button>
+						<input type="button" class="btn btn-lg btn-primary" id="my-button" value="Select Image" style=" margin-top:0.5em;">
+						<input type="file" accept="image/gif, image/jpeg, image/png" onchange="loadFile(event)" name="image" id="my-file" style="visibility: hidden;">
+						<img class="card-img-top" id="output" alt="Report Img" style="height:570px; width:450px; margin-left:2em" src="/img/template2.png">
+						<script type="text/javascript">
+							$('#my-button').click(function(){
+									$('#my-file').click();
+							});
+						</script>
+						<script>
+							var loadFile = function(event) {
+								var image = document.getElementById('output');
+								image.src = URL.createObjectURL(event.target.files[0]);
+								$('#sub_btn').prop('disabled', false);
+							};
+						</script>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-12 col-md-6">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title mb-0">Blood Test Form</h5>
+					<div class="m-sm-4">
+						<form method="POST" action="/uploadform">
+							<div class="mb-5" style="margin-top: 2em;">
+								<label class="form-label">Report Name</label>
+								<input class="form-control form-control-lg" name="report_name" type="text" style="width: 100%; margin-top:0.5em" required="required"/>
+							</div>
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">Name</label>
+									<input class="form-control form-control-lg" type="text" style="float:left;" name="name" required="required"/>
+								</div>
+								<div class="mb-2">
+									<input class="form-control form-control-lg" type="number" name="age"  style="float:right;"/>
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;" required="required">Age</label>
+								</div>
+							</div>
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">Gender</label>
+									<input class="form-control form-control-lg" type="text" style="float:left;" name="gender" required="required"/>
+								</div>
+								<div class="mb-2">
+									<input class="form-control form-control-lg" type="date" name="issue_date"  style="float:right;"/>
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;" required="required">Birth Date</label>
+								</div>
+							</div>
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">RBC</label>
+									<input class="form-control form-control-lg" type="number" style="float:left;" name="rbc" required="required"/>
+								</div>
+								<div class="mb-2">
+									<input class="form-control form-control-lg" type="number" name="hgb"  style="float:right;"/>
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;" required="required">HGB</label>
+								</div>
+							</div>
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">HCT</label>
+									<input class="form-control form-control-lg" type="number" style="float:left;" name="hct" required="required"/>
+								</div>
+								<div class="mb-2">
+									<input class="form-control form-control-lg" type="number" style="float:right;" name="mcv" required="required"/>
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">MCV</label>
+								</div>	
+							</div>					
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">MCH</label>
+									<input class="form-control form-control-lg" type="number" style="float:left;" name="mch" required="required"/>
+								</div>										
+								<div class="mb-2">
+									<input class="form-control form-control-lg" name="mchc" type="number" style="float:right;" required="required"/>
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">MCHC</label>
+								</div>
+							</div>										
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">RDW</label>
+									<input class="form-control form-control-lg" name="rdw" type="number" style="float:left;" required="required"/>
+								</div>										
+								<div class="mb-2">
+									<input class="form-control form-control-lg" name="wbc" type="number" style="float:right;" required="required"/>
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">WBC</label>
+								</div>
+							</div>										
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">LYM%</label>
+									<input class="form-control form-control-lg" name="lymp" type="number" style="float:left;" required="required"/>
+								</div>										
+								<div class="mb-2">
+									<input class="form-control form-control-lg" name="lym" type="number" style="float:right;" required="required"/>
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">LYM</label>
+								</div>	
+							</div>									
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">MON%</label>
+									<input class="form-control form-control-lg" name="monp" type="number" style="float:left;" required="required"/>
+								</div>										
+								<div class="mb-2">
+									<input class="form-control form-control-lg" name="mon" type="number" style="float:right;" required="required"/>
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">MON</label>
+								</div>
+							</div>
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">GRA%</label>
+									<input class="form-control form-control-lg" name="grap" type="number" style="float:left;" required="required"/>
+								</div>										
+								<div class="mb-2">
+									<input class="form-control form-control-lg" name="gra" type="number" style="float:right;" required="required"/>
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">GRA</label>
+								</div>
+							</div>										
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">PLT</label>
+									<input class="form-control form-control-lg" name="plt" type="number" style="float:left;" required="required"/>
+								</div>										
+								<div class="mb-2">
+									<input class="form-control form-control-lg" name="mpv" type="number" style="float:right;" required="required"/>
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">MPV</label>
+								</div>
+							</div>										
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">PCT</label>
+									<input class="form-control form-control-lg" name="pct" type="number" style="float:left;" required="required"/>
+								</div>										
+								<div class="mb-2">
+									<input class="form-control form-control-lg" name="pdw" type="number" style="float:right;" required="required"/>
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">PDW</label>
+								</div>
+							</div>										
+							<div class="mb-5" style="margin-top: 1em;">
+								<label class="form-label">Comments</label>
+								<input class="form-control form-control-lg" name="comments" type="text" style="width: 100%;" required="required"/>
+							</div>
+							<div class="text-center mt-3">
+								<button type="submit" class="btn btn-lg btn-primary">Save & Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>

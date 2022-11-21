@@ -1,0 +1,144 @@
+<main class="content">
+	<div class="row">
+		<div class="col-12 col-lg-12">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title mb-0">Blood Test Details</h5>
+          {{#if viewmode}}
+          <p class="card-text">Showing the details of the selected report</p>
+          {{else}}
+          <p class="card-text">Edit the data with what fit you and submit any changes</p>
+          {{/if}}
+					<div class="m-sm-4">
+						<form method="POST" action="/report/editform/{{reportId}}/{{patientId}}">
+							<div class="mb-5" style="margin-top: 2em;">
+								<label class="form-label">Report Name</label>
+								<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" name="report_name" value="{{info.ReportName}}" type="text" style="width: 100%; margin-top:0.5em" required="required"/>
+							</div>
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">Name</label>
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" type="text" style="float:left;" name="name" value="{{info.Name}}" required="required"/>
+								</div>
+								<div class="mb-2">
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" type="number" name="age" value="{{info.Age}}" style="float:right;"/>
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;" required="required">Age</label>
+								</div>
+							</div>
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">Gender</label>
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" type="text" style="float:left;" name="gender" value="{{info.Gender}}" required="required"/>
+								</div>
+								{{!-- <div class="mb-2">
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" type="date" name="issue_date" value="{{info.Date}}"  style="float:right;"/>
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;" required="required">Issue Date</label>
+								</div> --}}
+							</div>
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">RBC</label>
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" type="number" style="float:left;" value="{{info.RBC}}"  name="rbc" />
+								</div>
+								<div class="mb-2">
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" type="number" name="hgb"  style="float:right;" value="{{info.HGB}}" />
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;" >HGB</label>
+								</div>
+							</div>
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">HCT</label>
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" type="number" style="float:left;" name="hct" value="{{info.HCT}}"  />
+								</div>
+								<div class="mb-2">
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" type="number" style="float:right;" value="{{info.MCV}}" name="mcv" />
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">MCV</label>
+								</div>	
+							</div>					
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">MCH</label>
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" type="number" style="float:left;" value="{{info.MCH}}" name="mch" />
+								</div>										
+								<div class="mb-2">
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" name="mchc" type="number"  value="{{info.MCHC}}" style="float:right;" />
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">MCHC</label>
+								</div>
+							</div>										
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">RDW</label>
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" name="rdw" type="number" value="{{info.RDW}}" style="float:left;" />
+								</div>										
+								<div class="mb-2">
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" name="wbc" type="number" value="{{info.WBC}}" style="float:right;" />
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">WBC</label>
+								</div>
+							</div>										
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">LYM%</label>
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" name="lymp"  value="{{info.LYMP}}" type="number" style="float:left;" />
+								</div>										
+								<div class="mb-2">
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" name="lym" value="{{info.LYM}}" type="number" style="float:right;" />
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">LYM</label>
+								</div>	
+							</div>									
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">MON%</label>
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" value="{{info.MONP}}" name="monp" type="number" style="float:left;" />
+								</div>										
+								<div class="mb-2">
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" name="mon" value="{{info.MON}}" type="number" style="float:right;" />
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">MON</label>
+								</div>
+							</div>
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">GRA%</label>
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" name="grap" value="{{info.GRAP}}" type="number" style="float:left;" />
+								</div>										
+								<div class="mb-2">
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" name="gra" value="{{info.GRA}}" type="number" style="float:right;" />
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">GRA</label>
+								</div>
+							</div>										
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">PLT</label>
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" name="plt" value="{{info.PLT}}" type="number" style="float:left;" />
+								</div>										
+								<div class="mb-2">
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" name="mpv" value="{{info.MPV}}" type="number" style="float:right;" />
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">MPV</label>
+								</div>
+							</div>										
+							<div style="display: inline-block; block; width: 100%;">
+								<div class="mb-2" style="margin-top: 1em;">
+									<label class="form-label" style="float: left;margin-right: 1em;margin-top: 0.5em; width: 50px;">PCT</label>
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" name="pct" value="{{info.PCT}}" type="number" style="float:left;" />
+								</div>										
+								<div class="mb-2">
+									<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg" name="pdw" value="{{info.PDW}}" type="number" style="float:right;" />
+									<label class="form-label" style="float: right;margin-right: 1em;margin-top: 0.5em; width: 50px;">PDW</label>
+								</div>
+							</div>										
+							<div class="mb-5" style="margin-top: 1em;">
+								<label class="form-label">Comments</label>
+								<input {{#if viewmode}} disabled {{/if}} class="form-control form-control-lg"  value="{{info.comments}}" name="comments" type="text" style="width: 100%;" required="required"/>
+							</div>
+              <input type="text" name="reportid" style="visibility: hidden;" value="{{info._id}}">
+              {{#unless viewmode}}
+                <div class="text-center mt-3">
+                  <button type="submit" class="btn btn-lg btn-primary">Save & Submit</button>
+                </div>
+              {{/unless}}
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>

@@ -1,0 +1,90 @@
+<main class="content">
+	<div class="container-fluid p-0">
+
+		<h1 class="h3 mb-3"><strong>My Reports</strong></h1>
+		<div class="row">
+			<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+				<div class="card flex-fill">
+					{{#if reports}}
+						<div class="card-header">
+
+							<h5 class="card-title mb-0">Unassigned Reports</h5>
+						</div>
+						<table class="table table-hover my-0">
+							<thead>
+								<tr>
+									<th class="d-xl-table-cell">Report Name</th>
+									<th class=" d-xl-table-cell">Upload Date</th>
+									<th class="d-xl-table-cell">Details</th>
+									<th class="d-xl-table-cell">Consult Doctor</th>
+									<th class="d-xl-table-cell">Edit</th>
+									<th class="d-xl-table-cell">Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								{{#each reports}}
+									{{#unless this.Assigned}}
+									<tr>
+										<td><span class="d-xl-table-cell">{{this.ReportName}}</span></td>
+										<td class="d-xl-table-cell">{{this.UploadDate}}</td>
+										<td class="d-xl-table-cell"><a href="/report/view/{{this._id}}/{{../patientId}}" class="btn btn-sm btn-secondary">View</a></td>
+										<td class="d-xl-table-cell" style="padding-right:1em;"> <a href="/report/assignto/{{this._id}}/{{../patientId}}" class="btn btn-sm btn-secondary">Select A Dr.</a></td>
+										<td class="d-xl-table-cell"><a href="/report/edit/{{this._id}}/{{../patientId}}"  class="btn btn-sm btn-secondary">Edit</a></td>
+										<td class="d-xl-table-cell"><a href="/report/delete/{{this._id}}/{{../patientId}}"  class="btn btn-sm btn-secondary">Delete</a></td>
+									</tr>
+									{{/unless}}
+								{{/each}}
+							</tbody>
+						</table>
+					{{ else }}
+						<h1 style="margin-left: 10em;"> No Reports are registered</h1>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+				<div class="card flex-fill">
+					<div class="card-header">
+
+						<h5 class="card-title mb-0">Assigned Reports</h5>
+					</div>
+					{{#if reports}}
+						<table class="table table-hover my-0">
+							<thead>
+								<tr>
+									<th>Report Name</th>
+									<th class="d-xl-table-cell">Upload Date</th>
+									<th class="d-xl-table-cell">Details</th>
+									<th class="d-xl-table-cell">Assigned doctor</th>
+									<th class="d-xl-table-cell" style="width: 10em;">Response</th>
+									<th class="d-xl-table-cell">Edit</th>
+									<th class="d-xl-table-cell">Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								{{#each info}}
+									{{#if this.report.Assigned}}
+										<tr>
+											<td><span class="d-xl-table-cell">{{this.report.ReportName}}</span></td>
+											<td class="d-xl-table-cell">{{this.UploadDate}}</td>
+											<td class="d-xl-table-cell" style="margin-right: 1em;"><a href="/report/view/{{this.report._id}}/{{../patientId}}" class="btn btn-sm btn-secondary">View</a></td>
+											<td class="d-xl-table-cell">{{this.fname}}{{this.lname}}</td>
+											<td class="d-xl-table-cell">{{this.response}}</td>
+											<td class="d-xl-table-cell"><a href="/report/edit/{{this.report._id}}/{{../patientId}}"  class="btn btn-sm btn-secondary">Edit</a></td>
+											<td class="d-xl-table-cell"><a href="/report/delete/{{this.report._id}}/{{../patientId}}"  class="btn btn-sm btn-secondary">Delete</a></td>
+										</tr>
+									{{/if}}
+								{{/each}}
+							</tbody>
+						</table>
+					{{ else }}
+						<h1 style="margin-left: 11em;"> No Reports are Assigned</h1>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+
+	</div>
+</main>

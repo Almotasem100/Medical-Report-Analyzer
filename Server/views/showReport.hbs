@@ -1,0 +1,343 @@
+<main class="content">
+	<div class="container-fluid p-0">
+    {{#if patient}}
+		  <h1 class="h3 mb-3"><strong>Viewing Your Report Details</strong></h1>
+    {{ else }}
+      <h1 class="h3 mb-3"><strong>Viewing Your Assigned Report</strong></h1>
+    {{/if}}
+    <div class="row">
+			<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+				<div class="card flex-fill">
+					<div class="card-header">
+
+						<h5 class="card-title mb-0">Patient Data</h5>
+					</div>
+						<table class="table table-hover my-0">
+							<tbody>
+									<tr>
+										<td><span class="d-none d-xl-table-cell" style="font-weight: bold;">Name</span></td>
+										<td class="d-none d-xl-table-cell">{{info.Name}}</td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell" style="font-weight: bold;">Age</span></td>
+										<td class="d-none d-xl-table-cell">{{info.Age}}</td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell" style="font-weight: bold;">Gender</span></td>
+										<td class="d-none d-xl-table-cell">{{info.Gender}}</td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell" style="font-weight: bold;">Date</span></td>
+										<td class="d-none d-xl-table-cell">{{Idate}}</td>
+									</tr>
+							</tbody>
+						</table>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+				<div class="card flex-fill">
+					<div class="card-header">
+
+						<h5 class="card-title mb-0">Report Data</h5>
+					</div>
+						<table class="table table-hover my-0">
+							<thead>
+								<tr>
+									<th class="d-none d-xl-table-cell">Measurements</th>
+									<th class="d-none d-xl-table-cell">Value</th>
+									<th class="d-none d-xl-table-cell">Ranges</th>
+									<th class="d-none d-xl-table-cell">Info</th>
+								</tr>
+							</thead>
+							<tbody>
+									<tr>
+										<td><span class="d-none d-xl-table-cell">RBC</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.RBC}}">{{info.RBC}}</span></td>
+										<td class="d-none d-xl-table-cell">4.7 : 6  (10^6/ul)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/rbc/{{patientId}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">HGB</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.HGB}}">{{info.HGB}}</span></td>
+										<td class="d-none d-xl-table-cell">13.5 : 18  (g/dl)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/hgb/{{patientId}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">MCV</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.MCV}}">{{info.MCV}}</span></td>
+										<td class="d-none d-xl-table-cell">78 : 99  (Um^3)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.MCV}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">MCH</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.MCH}}">{{info.MCH}}</span></td>
+										<td class="d-none d-xl-table-cell">27 : 31  (pg)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.MCH}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">MCHC</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.MCHC}}">{{info.MCHC}}</span></td>
+										<td class="d-none d-xl-table-cell">32 : 36  (g/dl)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.MCHC}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">HCT</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.HCT}}">{{info.HCT}}</span></td>
+										<td class="d-none d-xl-table-cell">37 : 47  (%)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.HCT}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">RDW</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.RDW}}">{{info.RDW}}</span></td>
+										<td class="d-none d-xl-table-cell">11.5 : 14.5  (%)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.RDW}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">WBC</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.WBC}}">{{info.WBC}}</span></td>
+										<td class="d-none d-xl-table-cell">4 : 10.5  (10^3/ul)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.WBC}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">LYMP</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.LYMP}}">{{info.LYMP}}</span></td>
+										<td class="d-none d-xl-table-cell">20 : 45  (%)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.LYMP}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">LYM</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.LYM}}">{{info.LYM}}</span></td>
+										<td class="d-none d-xl-table-cell">1.2 : 3.2  (10^3/ul)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.LYM}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">MONP</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.MONP}}">{{info.MONP}}</span></td>
+										<td class="d-none d-xl-table-cell">1 : 8  (%)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.MONP}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">MON</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.MON}}">{{info.MON}}</span></td>
+										<td class="d-none d-xl-table-cell">0.3 : 0.8  (10^3/ul)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.MON}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">GRAP</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.GRAP}}">{{info.GRAP}}</span></td>
+										<td class="d-none d-xl-table-cell">52 : 76  (%)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.MONP}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">GRA</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.GRA}}">{{info.GRA}}</span></td>
+										<td class="d-none d-xl-table-cell">1.6 : 7.2  (10^3/ul)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.GRA}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">PLT</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.PLT}}">{{info.PLT}}</span></td>
+										<td class="d-none d-xl-table-cell">140 : 440  (10^3/ul)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.PLT}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">MPV</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.MPV}}">{{info.MPV}}</span></td>
+										<td class="d-none d-xl-table-cell">7.4 : 10.4  (Um^3)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.MPV}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">PCT</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.PCT}}">{{info.PCT}}</span></td>
+										<td class="d-none d-xl-table-cell">0.1 : 0.5  (%)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.PCT}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+                  <tr>
+										<td><span class="d-none d-xl-table-cell">PDW</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-{{values.PDW}}">{{info.PDW}}</span></td>
+										<td class="d-none d-xl-table-cell">9 : 14  (%)</td>
+										<td class="d-none d-xl-table-cell">
+                      <a href="/report/view/info/{{info.PDW}}">
+                        <div class="mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                          <span class="align-middle">info</span>
+                        </div>
+                      </a>
+                    </td>
+									</tr>
+							</tbody>
+						</table>
+				</div>
+			</div>
+		</div>
+    <div class="row">
+			<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+				<div class="card flex-fill">
+						<table class="table table-hover my-0">
+							<thead>
+								<tr>
+									<th class="d-none d-xl-table-cell">COMMENTS</th>
+								</tr>
+							</thead>
+							<tbody>
+									<tr>
+										<td class="d-none d-xl-table-cell">{{info.comments}}</td>
+									</tr>
+							</tbody>
+						</table>
+				</div>
+			</div>
+		</div>
+    {{#if info.Assigned}}
+      <div class="row">
+        <div class="col-12 col-lg-12 col-xxl-12 d-flex">
+          <div class="col-12 col-md-6">
+            <div class="card">
+              <form method="POST" action="/doctor/response/{{doctorId}}/{{assignId}}" enctype="multipart/form-data">
+                <div class="card-header">
+                  <h5 class="card-title mb-0">The Consaltance Response</h5>
+                </div>
+                <div class="card-body">
+                  <div class="mb-5" style="margin-top: 2em;">
+                    {{!-- <label class="form-label">Report Name</label> --}}
+                    <input class="form-control form-control-lg"  onchange="loadFile(event)" {{#if respond}} value="{{respo}}" {{/if}} name="response" type="text" style="width: 100%; margin-top:0.5em" {{#if patient}} disabled {{/if}} required="required"/>
+                  </div>
+                  {{!-- <a href="#" class="btn btn-primary" style="float: right;">Browse your folders</a> --}}
+                  {{#if doctor}}
+                    <button type="submit" class="btn btn-lg btn-primary" style="float: right; margin-bottom:0.5em;" disabled id="sub_btn">{{#if responded}}Edit Response{{ else }}Respond{{/if}}</button>
+                    <script>
+                      var loadFile = function(event) {
+                        $('#sub_btn').prop('disabled', false);
+                      };
+                    </script>
+                  {{/if}}
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+		  </div>
+    {{/if}}
+	</div>
+</main>
