@@ -49,7 +49,7 @@ We also put in the option for the user to fill out a table manually by himself
 
 After the user, checks out the validaty of the data either put by him or extracted by our app, the table is stored by our server in the data base after a table is built there, to allow the user its retrieval later on.
 
-![img](Results/ER.jpg)
+![img](Results/ER.JPG)
 
 ### Export Results
 
